@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 const User=({user,onRemove,onToggle})=>{
-  return (
+  // useEffect(()=>{
+  //   console.log('user 값이 설정됨');
+  //   console.log(user);
+  //   return ()=>{
+  //     console.log('user가 바뀌기전..');
+  //     console.log(user);
+  //   }
+  // },[user])
+  // [user] => deps
+   return (
     <div>
       <b
         style={({
