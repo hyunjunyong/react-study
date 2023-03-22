@@ -98,7 +98,7 @@ function App() {
     });
     reset()
     nextId.current += 1;
-  }, [username, email]);
+  }, [username, email,reset]);
 
   const onToggle = useCallback(id => {
     dispatch({
