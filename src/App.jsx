@@ -1,6 +1,22 @@
 import React, { useReducer, useMemo } from 'react';
 import UserList from './component/UserList';
 import CreateUser from './component/CreateUser';
+// import produce from 'immer'
+
+// 기본 Immer 예제
+// const todo = {
+//   text: 'Hello',
+//   done: false
+// };
+
+// const updater = produce(draft => {
+//   draft.done = !draft.done;
+// });
+
+// const nextTodo = updater(todo);
+
+// console.log(nextTodo);
+
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
