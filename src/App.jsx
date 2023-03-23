@@ -3,6 +3,24 @@ import UserList from './component/UserList';
 import CreateUser from './component/CreateUser';
 import produce from 'immer'
 
+// 클래스형 컴포넌트 예제 잘 안쓰임 이제
+// class Hello extends Component {
+//   render() {
+//     const { color, name, isSpecial } = this.props;
+//     return (
+//       <div style={{ color }}>
+//         {isSpecial && <b>*</b>}
+//         안녕하세요 {name}
+//       </div>
+//     );
+//   }
+// }
+
+// Hello.defaultProps = {
+//   name: '이름없음'
+// };
+
+
 // 기본 Immer 예제
 // const todo = {
 //   text: 'Hello',
