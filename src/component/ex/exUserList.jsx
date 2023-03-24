@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserDispatch } from '../App'
+import { UserDispatch } from '../../exApp'
 
 const User = React.memo(function User({ user }) {
   const dispatch = useContext(UserDispatch)
