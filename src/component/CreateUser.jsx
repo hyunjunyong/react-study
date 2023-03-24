@@ -1,15 +1,15 @@
-import React, { useRef, useContext } from 'react';
-import useInputs from '../hooks/useInputs';
-import { UserDispatch } from '../App';
+import React, { useRef, useContext } from 'react'
+import useInputs from '../hooks/useInputs'
+import { UserDispatch } from '../App'
 
 const CreateUser = () => {
   const [{ username, email }, onChange, reset] = useInputs({
     username: '',
-    email: ''
-  });
+    email: '',
+  })
 
-  const nextId = useRef(4);
-  const dispatch = useContext(UserDispatch);
+  const nextId = useRef(4)
+  const dispatch = useContext(UserDispatch)
 
   const onCreate = () => {
     dispatch({
@@ -17,12 +17,12 @@ const CreateUser = () => {
       user: {
         id: nextId.current,
         username,
-        email
-      }
-    });
-    reset();
-    nextId.current += 1;
-  };
+        email,
+      },
+    })
+    reset()
+    nextId.current += 1
+  }
 
   return (
     <div>
@@ -40,7 +40,7 @@ const CreateUser = () => {
       />
       <button onClick={onCreate}>등록</button>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(CreateUser);
+export default React.memo(CreateUser)
