@@ -1,7 +1,7 @@
 // 투두 아이템 리스트
 import React from 'react'
 import styled from 'styled-components'
-import TodoItem from './TodoItem'
+import TodoItem from '../components/TodoItem'
 
 const TodoListBlock = styled.div`
   flex: 1;
