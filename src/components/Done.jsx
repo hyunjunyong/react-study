@@ -1,18 +1,18 @@
 import React from 'react'
-
-const Done = () => {
+import List from './List'
+const Done = ({ DoneList }) => {
   return (
-    <div class="Done-wrap wrap">
-      <div class="header">
+    <div className="Done-wrap wrap">
+      <div className="header">
         <h2>
-          <p>해야 할 일</p>
+          <p>완료 된 일</p>
         </h2>
       </div>
-      <div class="section">
+      <div className="section">
         <ul>
-          <li>리액트 학습하기</li>
-          <li>리액트 학습하기</li>
-          <li>리액트 학습하기</li>
+          {DoneList.map((list) => (
+            <List list={list} key={list.id} />
+          ))}
         </ul>
       </div>
     </div>

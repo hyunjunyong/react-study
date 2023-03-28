@@ -41,19 +41,36 @@ section{
   display: flex;
   justify-content: space-around;
 }
+footer{
+  margin-top: 50px;
+}
 ul{
   padding:0;
   margin:0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 li{
+  position: relative;
+  margin:10px;
   list-style-type: none;
+  background-color: #DAF5FF;
+  color:gray;
+  height:50px;
+  padding:10px;
+}
+button{
+  border:0;
+  outline:0;
+  background-color: transparent;
 }
 .wrap{
   
 }
 .wrap .section{
   border-radius: 10px;
-  padding: 100px;
+  padding: 50px;
 }
 .Todo-wrap .section{
   border:1px solid #FEFF86;
