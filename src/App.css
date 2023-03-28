@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+section{
+  display: flex;
+  justify-content: space-around;
+}
+ul{
+  padding:0;
+  margin:0;
+}
+li{
+  list-style-type: none;
+}
+.wrap{
+  
+}
+.wrap .section{
+  border-radius: 10px;
+  padding: 100px;
+}
+.Todo-wrap .section{
+  border:1px solid #FEFF86;
+}
+.Doing-wrap .section{
+  border:1px solid #B0DAFF;
+}
+.Done-wrap .section{
+  border: 1px solid #B9E9FC;
+}
