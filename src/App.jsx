@@ -1,11 +1,10 @@
 import React, { useState, useRef } from 'react'
 import './App.css'
-import ToDo from './components/ToDo'
-import Doing from './components/Doing'
-import Done from './components/Done'
+import List from './components/List'
 import CreateDo from './components/CreateDo'
 
 const App = () => {
+  const title = ['ToDo', 'Doing', 'Done']
   const [doList, setDoList] = useState([
     {
       id: 1,
@@ -22,30 +21,30 @@ const App = () => {
   ])
   const [DoneList, setDoneList] = useState([
     {
-      id: 1,
-      do: '리액트 학습하기 1',
+      id: 4,
+      do: '리액트 학습하기 4',
     },
     {
-      id: 2,
-      do: '리액트 학습하기 2',
+      id: 5,
+      do: '리액트 학습하기 5',
     },
     {
-      id: 3,
-      do: '리액트 학습하기 3',
+      id: 6,
+      do: '리액트 학습하기 6',
     },
   ])
   const [DoingList, setDoingList] = useState([
     {
-      id: 1,
-      do: '리액트 학습하기 1',
+      id: 7,
+      do: '리액트 학습하기 7',
     },
     {
-      id: 2,
-      do: '리액트 학습하기 2',
+      id: 8,
+      do: '리액트 학습하기 8',
     },
     {
-      id: 3,
-      do: '리액트 학습하기 3',
+      id: 9,
+      do: '리액트 학습하기 9',
     },
   ])
   const [inputs, setInputs] = useState('')
@@ -66,6 +65,11 @@ const App = () => {
     setInputs('')
     nextId.current += 1
   }
+  const onRemove = (id) => {
+    setDoList(doList.filter((list) => list.id !== id))
+    setDoneList(DoneList.filter((list) => list.id !== id))
+    setDoingList(DoingList.filter((list) => list.id !== id))
+  }
   return (
     <div className="App">
       <header>
@@ -73,9 +77,9 @@ const App = () => {
       </header>
 
       <section>
-        <ToDo doList={doList}></ToDo>
-        <Doing DoingList={DoingList}></Doing>
-        <Done DoneList={DoneList}></Done>
+        <List title={title[0]} ToDoList={doList} onRemove={onRemove} />
+        <List title={title[1]} ToDoList={DoingList} onRemove={onRemove} />
+        <List title={title[0]} ToDoList={DoneList} onRemove={onRemove} />
       </section>
       <footer>
         <CreateDo Do={inputs || ''} onChange={onChange} onCreate={onCreate} />
