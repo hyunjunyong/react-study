@@ -1,15 +1,17 @@
 import React from 'react'
 import Delete from '../images/delete.png'
 
-const List = ({ title, ToDoList, onRemove }) => {
+const List = ({
+  title,
+  ToDoList,
+  onRemove,
+  handleDragStart,
+  handleDrop,
+  handleDragOver,
+}) => {
   const imgStyle = {
     width: '10px',
     height: '10px',
-  }
-
-  const handleDragStart = (e, id) => {
-    e.dataTransfer.setData('text/plain', id)
-    // setDraggedItemId(id);
   }
 
   return (
@@ -19,12 +21,16 @@ const List = ({ title, ToDoList, onRemove }) => {
           <p>{title}</p>
         </h2>
       </div>
-      <div className="section">
+      <div
+        className="section"
+        onDragOver={handleDragOver}
+        onDrop={(e) => handleDrop(e, ToDoList)}
+      >
         <ul>
-          {ToDoList.map((list) => (
+          {ToDoList.map((list, index) => (
             <li
               draggable
-              onDragStart={(e) => handleDragStart(e, list.id)}
+              onDragStart={(e) => handleDragStart(e, ToDoList, index)}
               key={list.id}
             >
               {list.do}
