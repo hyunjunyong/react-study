@@ -4,7 +4,7 @@ import List from './components/List'
 import CreateDo from './components/CreateDo'
 
 const App = () => {
-  const title = ['ToDo', 'Doing', 'Done']
+  const title = ['해야 할 일', '진행 중', '완료']
   const bgColor = ['border-red-500', 'border-yellow-500', 'border-green-500']
   const [doList, setDoList] = useState([
     {
@@ -156,7 +156,7 @@ const App = () => {
           bgColor={bgColor[2]}
         />
       </section>
-      <footer>
+      <footer className="m-2 p-2">
         <CreateDo Do={inputs || ''} onChange={onChange} onCreate={onCreate} />
       </footer>
     </div>
