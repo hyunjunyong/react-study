@@ -23,7 +23,7 @@ const List = ({
         </h2>
       </div>
       <div
-        className="section"
+        className="section h-full"
         onDragOver={handleDragOver}
         onDrop={(e) => handleDrop(e, ToDoList)}
       >
