@@ -11,7 +11,7 @@ const CreateDo = ({ onChange, Do, onCreate }) => {
         value={Do}
       />
       <button
-        className="text-sm ml-3 p-2 rounded-full bg-blue-400"
+        className="text-sm ml-3 p-2 rounded-full bg-blue-400 text-white"
         onClick={onCreate}
       >
         등록하기

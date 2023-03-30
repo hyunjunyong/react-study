@@ -124,7 +124,7 @@ const App = () => {
   return (
     <div className="App text-center mt-10 min-h-full bg-gray-100">
       <header className="mb-5">
-        <h1 className="text-2xl pt-2">ToDo-List</h1>
+        <h1 className="text-4xl pt-2">Kanban Board</h1>
       </header>
 
       <section className="flex mb-5">
