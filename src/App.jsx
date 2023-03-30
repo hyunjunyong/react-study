@@ -126,7 +126,7 @@ const App = () => {
         <h1>ToDo-List</h1>
       </header>
 
-      <section>
+      <section className="flex">
         <List
           title={title[0]}
           ToDoList={doList}
