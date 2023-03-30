@@ -5,6 +5,7 @@ import CreateDo from './components/CreateDo'
 
 const App = () => {
   const title = ['ToDo', 'Doing', 'Done']
+  const bgColor = ['border-red-500', 'border-yellow-500', 'border-green-500']
   const [doList, setDoList] = useState([
     {
       id: 1,
@@ -121,12 +122,12 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      <header>
-        <h1>ToDo-List</h1>
+    <div className="App text-center mt-10 min-h-full bg-gray-100">
+      <header className="mb-5">
+        <h1 className="text-2xl pt-2">ToDo-List</h1>
       </header>
 
-      <section className="flex">
+      <section className="flex mb-5">
         <List
           title={title[0]}
           ToDoList={doList}
@@ -134,6 +135,7 @@ const App = () => {
           handleDragStart={handleDragStart}
           handleDrop={handleDrop}
           handleDragOver={handleDragOver}
+          bgColor={bgColor[0]}
         />
         <List
           title={title[1]}
@@ -142,6 +144,7 @@ const App = () => {
           handleDragStart={handleDragStart}
           handleDrop={handleDrop}
           handleDragOver={handleDragOver}
+          bgColor={bgColor[1]}
         />
         <List
           title={title[2]}
@@ -150,6 +153,7 @@ const App = () => {
           handleDragStart={handleDragStart}
           handleDrop={handleDrop}
           handleDragOver={handleDragOver}
+          bgColor={bgColor[2]}
         />
       </section>
       <footer>

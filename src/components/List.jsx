@@ -8,6 +8,7 @@ const List = ({
   handleDragStart,
   handleDrop,
   handleDragOver,
+  bgColor,
 }) => {
   const imgStyle = {
     width: '10px',
@@ -15,9 +16,9 @@ const List = ({
   }
 
   return (
-    <div className="wrap">
+    <div className="wrap w-1/3 h-96 p-2 m-2 rounded-lg border-2 ">
       <div className="header">
-        <h2>
+        <h2 className="text-xl">
           <p>{title}</p>
         </h2>
       </div>
@@ -29,12 +30,13 @@ const List = ({
         <ul>
           {ToDoList.map((list, index) => (
             <li
+              className={'p-2 m-2 border-l-8 bg-white ' + bgColor}
               draggable
               onDragStart={(e) => handleDragStart(e, ToDoList, index)}
               key={list.id}
             >
               {list.do}
-              <button onClick={() => onRemove(list.id)}>
+              <button className="ml-1" onClick={() => onRemove(list.id)}>
                 <img src={Delete} alt="" style={imgStyle} />
               </button>
             </li>
