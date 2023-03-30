@@ -84,26 +84,38 @@ const App = () => {
   }
 
   const handleDrop = (e, list) => {
+    e.preventDefault()
+
     const dropInfo = JSON.parse(e.dataTransfer.getData('text/plain'))
-    const { list: draggedList, index: draggedIndex } = dropInfo
+    // const { list: draggedList, index: draggedIndex } = dropInfo
+    const draggedList = dropInfo.list
+    const draggedIndex = dropInfo.index
 
     if (list === draggedList) return
-    const newList = [...list]
-    newList.splice(dropInfo.index, 0, draggedList[draggedIndex])
-    draggedList.splice(draggedIndex, 1)
-    console.log(newList, draggedList)
-    draggedList === doList
-      ? setDoList(draggedList)
-      : draggedList === DoneList
-      ? setDoneList(draggedList)
-      : setDoingList(draggedList)
-    newList === doList
-      ? setDoList(newList)
-      : list === DoneList
-      ? setDoneList(newList)
-      : setDoingList(newList)
-  }
 
+    const newList = [...list]
+    const draggedItem = draggedList[draggedIndex]
+
+    newList.splice(draggedIndex, 0, draggedItem)
+    console.log(draggedList)
+    // draggedList.splice(draggedIndex, 1)
+    const updatedList = draggedList.slice()
+    updatedList.splice(draggedIndex, 1)
+    console.log(draggedList, doList, list)
+    // 상태 업데이트
+    // 아래 list === doList부분은 JSON.stringify가 없어도 잘비교됨
+    // 근데.. 위에는 있어야됨 why...??
+    if (JSON.stringify(draggedList) === JSON.stringify(doList))
+      setDoList([...updatedList])
+    if (JSON.stringify(draggedList) === JSON.stringify(DoingList))
+      setDoingList([...updatedList])
+    if (JSON.stringify(draggedList) === JSON.stringify(DoneList))
+      setDoneList([...updatedList])
+
+    if (list === doList) setDoList([...newList])
+    if (list === DoingList) setDoingList([...newList])
+    if (list === DoneList) setDoneList([...newList])
+  }
   const handleDragOver = (e) => {
     e.preventDefault()
   }
