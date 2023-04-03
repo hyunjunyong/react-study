@@ -1,6 +1,9 @@
 import React from 'react'
 
 const CreateDo = ({ onChange, Do, onCreate }) => {
+  const onKeyPress = (e) => {
+    if (e.key === 'Enter') onCreate()
+  }
   return (
     <>
       <input
@@ -9,6 +12,7 @@ const CreateDo = ({ onChange, Do, onCreate }) => {
         placeholder="추가할 일을 입력하세요"
         onChange={onChange}
         value={Do}
+        onKeyPress={onKeyPress}
       />
       <button
         className="text-sm ml-3 p-2 rounded-full bg-blue-400 text-white"
