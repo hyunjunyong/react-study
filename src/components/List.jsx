@@ -36,15 +36,18 @@ const List = ({
               key={list.id}
             >
               {list.do}
-              <button className="ml-1" onClick={() => onRemove(list.id)}>
+              <button
+                className="ml-1"
+                onClick={() => onRemove(list.id, list.type)}
+              >
                 <img src={Delete} alt="" style={imgStyle} />
               </button>
             </li>
           ))}
 
-          <li className="p-2 m-2 border-dashed border-2">
+          {/* <li className="p-2 m-2 border-dashed border-2">
             <button className="w-full text-xl">+</button>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
