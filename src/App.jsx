@@ -67,6 +67,7 @@ const App = () => {
     const addDoList = {
       id: nextId.current,
       do: inputs,
+      type: 'ToDo',
     }
     setDoList([...doList, addDoList])
     setInputs('')
@@ -93,17 +94,17 @@ const App = () => {
     const draggedList = dropInfo.list
     const draggedIndex = dropInfo.index
 
-    if (list === draggedList) return
+    if (JSON.stringify(list) === JSON.stringify(draggedList)) return
 
     const newList = [...list]
     const draggedItem = draggedList[draggedIndex]
 
     newList.splice(draggedIndex, 0, draggedItem)
-    console.log(draggedList)
+
     // draggedList.splice(draggedIndex, 1)
     const updatedList = draggedList.slice()
     updatedList.splice(draggedIndex, 1)
-    console.log(draggedList, doList, list)
+    console.log(updatedList, newList)
     // 상태 업데이트
     // 아래 list === doList부분은 JSON.stringify가 없어도 잘비교됨
     // 근데.. 위에는 있어야됨 why...??
@@ -114,9 +115,18 @@ const App = () => {
     if (JSON.stringify(draggedList) === JSON.stringify(DoneList))
       setDoneList([...updatedList])
 
-    if (list === doList) setDoList([...newList])
-    if (list === DoingList) setDoingList([...newList])
-    if (list === DoneList) setDoneList([...newList])
+    if (list === doList) {
+      newList.map((item) => (item.type = 'ToDo'))
+      setDoList([...newList])
+    }
+    if (list === DoingList) {
+      newList.map((item) => (item.type = 'Doing'))
+      setDoingList([...newList])
+    }
+    if (list === DoneList) {
+      newList.map((item) => (item.type = 'Done'))
+      setDoneList([...newList])
+    }
   }
   const handleDragOver = (e) => {
     e.preventDefault()
